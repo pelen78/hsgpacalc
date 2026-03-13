@@ -2012,42 +2012,53 @@
       <!-- Step 1 -->
       <div class="math-section">
         <div class="math-step-badge">Step 1</div>
-        <div class="math-step-title">Each subject grade × its credits = Quality Points</div>
-        <p class="math-desc">ATS does not simply average all grades equally. Each subject carries a <strong>credit weight</strong> (e.g. 0.50 for core subjects, 0.25 for PE and Fine Arts). The grade is multiplied by that weight to produce <strong>Quality Points</strong>.</p>
+        <div class="math-step-title">Each subject grade × its GPA weight = Quality Points</div>
+        <p class="math-desc">ATS does not simply average all grades equally. Rediker assigns each subject a <strong>GPA weight</strong> — separate from its graduation credits. Core subjects carry a weight of <strong>1.0</strong>, while PE and Fine Arts carry less. The semester grade is multiplied by that weight to produce <strong>Quality Points</strong>.</p>
 
-        <div class="math-flow">
+        <div class="qp-example-wrap" style="margin-top:.75rem;">
+          <div class="qp-example-title">Subject weights at ATS</div>
+          <div class="qp-table">
+            <div class="qp-row qp-hdr"><span>Subject type</span><span>Credits</span><span>GPA Weight</span></div>
+            <div class="qp-row"><span>Core subjects (Eng, Math, Science, SS, Spanish, Comp App…)</span><span>0.50</span><span><strong>1.0</strong></span></div>
+            <div class="qp-row"><span>PE</span><span>0.25</span><span><strong>0.50</strong></span></div>
+            <div class="qp-row"><span>Fine Arts (Drama, etc.)</span><span>0.25</span><span><strong>0.40</strong></span></div>
+            <div class="qp-row"><span>SRVLRN (Service Learning)</span><span>0</span><span><strong>0</strong></span></div>
+          </div>
+        </div>
+
+        <div class="math-flow" style="margin-top:1rem;">
           <div class="math-flow-box accent-blue">
-            <div class="mfb-top">Grade</div>
+            <div class="mfb-top">Semester Grade</div>
             <div class="mfb-val">85</div>
-            <div class="mfb-sub">0–100 scale</div>
+            <div class="mfb-sub">S1 or S2</div>
           </div>
           <div class="math-arrow">×</div>
           <div class="math-flow-box accent-green">
-            <div class="mfb-top">Credits</div>
-            <div class="mfb-val">0.50</div>
-            <div class="mfb-sub">core subject weight</div>
+            <div class="mfb-top">GPA Weight</div>
+            <div class="mfb-val">1.0</div>
+            <div class="mfb-sub">core subject</div>
           </div>
           <div class="math-arrow">=</div>
           <div class="math-flow-box accent-gold">
             <div class="mfb-top">Quality Points</div>
-            <div class="mfb-val">42.5</div>
+            <div class="mfb-val">85.0</div>
             <div class="mfb-sub">for this subject</div>
           </div>
         </div>
 
-        <div class="qp-example-wrap">
-          <div class="qp-example-title">9th Grade — Semester 1 example</div>
+        <div class="qp-example-wrap" style="margin-top:1rem;">
+          <div class="qp-example-title">9th Grade — full year example (Manzur)</div>
           <div class="qp-table">
-            <div class="qp-row qp-hdr"><span>Subject</span><span>Grade</span><span>Credits</span><span>Quality Pts</span></div>
-            <div class="qp-row"><span>Eng. Literature I</span><span>73</span><span>0.50</span><span>36.5</span></div>
-            <div class="qp-row"><span>Algebra I</span><span>59</span><span>0.50</span><span>29.5</span></div>
-            <div class="qp-row"><span>Phy Sci I</span><span>65</span><span>0.50</span><span>32.5</span></div>
-            <div class="qp-row"><span>H Mex III</span><span>73</span><span>0.50</span><span>36.5</span></div>
-            <div class="qp-row"><span>Fine Arts I</span><span>90</span><span>0.25</span><span>22.5</span></div>
-            <div class="qp-row"><span>Comp Appl I</span><span>70</span><span>0.50</span><span>35.0</span></div>
-            <div class="qp-row"><span>PE I</span><span>81</span><span>0.25</span><span>20.25</span></div>
-            <div class="qp-row"><span>Español I</span><span>69</span><span>0.50</span><span>34.5</span></div>
-            <div class="qp-row qp-total"><span>Total</span><span>—</span><span>3.50</span><span>247.25</span></div>
+            <div class="qp-row qp-hdr"><span>Subject</span><span>S1</span><span>S2</span><span>Weight</span><span>QP (S1)</span><span>QP (S2)</span></div>
+            <div class="qp-row"><span>Eng. Literature</span><span>73</span><span>73</span><span>1.0</span><span>73.0</span><span>73.0</span></div>
+            <div class="qp-row"><span>Algebra</span><span>59</span><span>75</span><span>1.0</span><span>59.0</span><span>75.0</span></div>
+            <div class="qp-row"><span>Phy Science</span><span>65</span><span>78</span><span>1.0</span><span>65.0</span><span>78.0</span></div>
+            <div class="qp-row"><span>H Mex / EsSoEcM</span><span>73</span><span>76</span><span>1.0</span><span>73.0</span><span>76.0</span></div>
+            <div class="qp-row"><span>Español</span><span>69</span><span>68</span><span>1.0</span><span>69.0</span><span>68.0</span></div>
+            <div class="qp-row"><span>Comp Appl</span><span>70</span><span>86</span><span>1.0</span><span>70.0</span><span>86.0</span></div>
+            <div class="qp-row"><span>PE</span><span>81</span><span>82</span><span>0.5</span><span>40.5</span><span>41.0</span></div>
+            <div class="qp-row"><span>Fine Arts</span><span>90</span><span>83</span><span>0.4</span><span>36.0</span><span>33.2</span></div>
+            <div class="qp-row qp-total"><span>Total</span><span>—</span><span>—</span><span>S1: 7.9 / S2: 7.9</span><span>485.5</span><span>530.2</span></div>
           </div>
         </div>
       </div>
@@ -2057,27 +2068,20 @@
       <!-- Step 2 -->
       <div class="math-section">
         <div class="math-step-badge">Step 2</div>
-        <div class="math-step-title">Weighted Average = Total Quality Points ÷ Total Credits</div>
-        <p class="math-desc">Add up all the quality points for the semester, then divide by the total credits. This gives the <strong>weighted average</strong> — what ATS calls the <em>Simple GPA</em> on the 0–100 scale.</p>
-
+        <div class="math-step-title">Semester Grade = Q1 × 40% + Q2 × 40% + Exam × 20%</div>
+        <p class="math-desc">Before weights are applied, Rediker calculates the semester grade (S1/S2) from the quarterly grades. If there is no exam, the formula is simply <strong>(Q1 + Q2) ÷ 2</strong>. If there is a semester exam, Q1 and Q2 each count 40% and the exam counts 20%.</p>
         <div class="formula-box">
           <div class="formula-line">
-            <span class="formula-label">Total Quality Points (Sem 1):</span>
-            <span class="formula-expr">247.25</span>
-            <span class="formula-result"></span>
-          </div>
-          <div class="formula-line">
-            <span class="formula-label">Total Credits (Sem 1):</span>
-            <span class="formula-expr">3.50</span>
+            <span class="formula-label">Without exam:</span>
+            <span class="formula-expr">(Q1 + Q2) ÷ 2</span>
             <span class="formula-result"></span>
           </div>
           <div class="formula-line formula-final">
-            <span class="formula-label">Weighted Average:</span>
-            <span class="formula-expr">247.25 ÷ 3.50</span>
-            <span class="formula-result big">= <strong>70.6</strong></span>
+            <span class="formula-label">With exam:</span>
+            <span class="formula-expr">Q1 × 0.40 + Q2 × 0.40 + Exam × 0.20</span>
+            <span class="formula-result"></span>
           </div>
         </div>
-        <p class="math-desc" style="margin-top:.75rem;">Notice this is <em>different</em> from a plain average (72.5). Subjects with more credits pull the average more — Algebra (59 × 0.5) drags it down more than PE (81 × 0.25) pulls it up.</p>
       </div>
 
       <div class="math-divider"></div>
@@ -2085,24 +2089,52 @@
       <!-- Step 3 -->
       <div class="math-section">
         <div class="math-step-badge">Step 3</div>
-        <div class="math-step-title">Cumulative GPA = All semesters combined</div>
-        <p class="math-desc">The same weighted average is calculated for every semester. All quality points from all semesters are added together and divided by all credits combined. This gives the overall <strong>Cumulative Simple GPA</strong>.</p>
+        <div class="math-step-title">Simple GPA = Total Quality Points ÷ Total Weight</div>
+        <p class="math-desc">All quality points for all courses are added together and divided by the total GPA weight — not the total credits. This is what Rediker calls <strong>Simple GPA</strong> (on the 0–100 scale).</p>
 
         <div class="formula-box">
           <div class="formula-line">
-            <span class="formula-label">Sem 1 quality points:</span>
-            <span class="formula-expr">247.25 (weight 3.50)</span>
+            <span class="formula-label">Full year quality points:</span>
+            <span class="formula-expr">485.5 + 530.2 = 1015.7</span>
             <span class="formula-result"></span>
           </div>
           <div class="formula-line">
-            <span class="formula-label">Sem 2 quality points:</span>
-            <span class="formula-expr">270.25 (weight 3.50)</span>
+            <span class="formula-label">Full year weight:</span>
+            <span class="formula-expr">7.9 + 5.9 = 13.8</span>
             <span class="formula-result"></span>
           </div>
           <div class="formula-line formula-final">
-            <span class="formula-label">Cumulative Average:</span>
-            <span class="formula-expr">(247.25 + 270.25) ÷ (3.50 + 3.50)</span>
-            <span class="formula-result big">= <strong>73.9</strong></span>
+            <span class="formula-label">Simple GPA:</span>
+            <span class="formula-expr">1015.7 ÷ 13.8</span>
+            <span class="formula-result big">= <strong>73.6</strong></span>
+          </div>
+        </div>
+        <p class="math-desc" style="margin-top:.75rem;">Credits (0.25 / 0.50) are only used to determine graduation requirements. GPA weight (0.40 / 0.50 / 1.0) is what determines how much each subject pulls your average.</p>
+      </div>
+
+      <div class="math-divider"></div>
+
+      <!-- Step 4 — visual scale (kept same) -->
+      <div class="math-section">
+        <div class="math-step-badge">Step 4</div>
+        <div class="math-step-title">Cumulative GPA = All semesters combined</div>
+        <p class="math-desc">The same calculation is applied to every semester across all years. All quality points are added and divided by all accumulated weight. This gives the overall <strong>Cumulative Simple GPA</strong> shown at the top of this tool.</p>
+
+        <div class="formula-box">
+          <div class="formula-line">
+            <span class="formula-label">9th year quality points:</span>
+            <span class="formula-expr">1015.7 (weight 13.8)</span>
+            <span class="formula-result"></span>
+          </div>
+          <div class="formula-line">
+            <span class="formula-label">10th year quality points:</span>
+            <span class="formula-expr">… (weight …)</span>
+            <span class="formula-result"></span>
+          </div>
+          <div class="formula-line formula-final">
+            <span class="formula-label">Cumulative GPA:</span>
+            <span class="formula-expr">Σ QP ÷ Σ Weight (all years)</span>
+            <span class="formula-result big">= <strong>GPA</strong></span>
           </div>
         </div>
 
@@ -2133,9 +2165,9 @@
 
       <div class="math-divider"></div>
 
-      <!-- Step 4 -->
+      <!-- Step 5 -->
       <div class="math-section">
-        <div class="math-step-badge">Step 4</div>
+        <div class="math-step-badge">Step 5</div>
         <div class="math-step-title">Converting to the 4.0 GPA scale</div>
         <p class="math-desc">Once the weighted average (0–100) is calculated, it is converted to the <strong>4.0 GPA scale</strong> using the standard ATS conversion table. A 73.9 weighted average falls in the C range → <strong>2.0 GPA</strong>. This is the scale used for university applications and academic standing.</p>
 
@@ -2410,17 +2442,21 @@ const SUBJECTS_12 = ['English','Math','Science','SS','Español','Speeches','Elec
 const CREDITS_12  = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
 
 function calc10th(allQP, allWeight, allScores, yearsComplete) {
-  const S1 = [0.5,0.5,0.5,0.5,0.5,0.5,0.5];
-  const S2 = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
-  return calcGradeQP('10', S1, S2, S1, S2, '10th', allQP, allWeight, allScores, yearsComplete);
+  const CR_S1 = [0.5,0.5,0.5,0.5,0.5,0.5,0.5];       // 7 subjects S1
+  const CR_S2 = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];   // 8 subjects S2 (Stats added)
+  const WT_S1 = [1.0,1.0,1.0,1.0,1.0,1.0,1.0];
+  const WT_S2 = [1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0];
+  return calcGradeQP('10', CR_S1, CR_S2, WT_S1, WT_S2, '10th', allQP, allWeight, allScores, yearsComplete);
 }
 function calc11th(allQP, allWeight, allScores, yearsComplete) {
   const CR = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
-  return calcGradeQP('11', CR, CR, CR, CR, '11th', allQP, allWeight, allScores, yearsComplete);
+  const WT = [1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0];
+  return calcGradeQP('11', CR, CR, WT, WT, '11th', allQP, allWeight, allScores, yearsComplete);
 }
 function calc12th(allQP, allWeight, allScores, yearsComplete) {
   const CR = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
-  return calcGradeQP('12', CR, CR, CR, CR, '12th', allQP, allWeight, allScores, yearsComplete);
+  const WT = [1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0];
+  return calcGradeQP('12', CR, CR, WT, WT, '12th', allQP, allWeight, allScores, yearsComplete);
 }
 
 function update() {
