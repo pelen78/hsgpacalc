@@ -983,7 +983,7 @@
   .sem-subj-table { flex: 1; }
   .ssrow {
     display: grid;
-    grid-template-columns: 2fr .8fr .6fr;
+    grid-template-columns: 2fr .55fr .55fr .9fr .55fr .5fr;
     align-items: center;
     border-bottom: 1px solid var(--border);
     padding: 0 .75rem;
@@ -1036,6 +1036,12 @@
   .ssgpa.gpa-mid { color: #1E40AF; }
   .ssgpa.gpa-low { color: #991B1B; }
 
+
+  .exam-cell { display: flex; align-items: center; gap: .3rem; }
+  .exam-cell input[type=checkbox] { width: 13px; height: 13px; cursor: pointer; accent-color: var(--navy); flex-shrink: 0; }
+  .exam-cell input[type=number] { width: 100%; }
+  .s1-calc { background: #F0F4FF !important; border-color: #C7D2FE !important; color: var(--navy) !important; font-style: italic; }
+  .s1-calc:not([readonly]) { background: #fff !important; border-color: var(--border) !important; color: var(--text) !important; font-style: normal; }
   .ssrow.elective-row { border-top: 1px dashed var(--border); }
   .ssrow.elective-row span:first-child { color: var(--muted); font-style: italic; }
 
@@ -1257,7 +1263,7 @@
   <div class="gpa-hero">
     <div class="gpa-big">
       <div class="val" id="heroGPA">—</div>
-      <div class="label">GPA Acumulado</div>
+      <div class="label">Cumulative GPA</div>
     </div>
     <div class="divider-v"></div>
     <div class="gpa-meta">
@@ -1309,15 +1315,71 @@
             <span class="sem-prom-badge">Prom: <strong id="prom9s1">—</strong> &nbsp; GPA: <strong id="gpaprom9s1">—</strong></span>
           </div>
           <div class="sem-subj-table">
-            <div class="ssrow sshdr"><span>Subject</span><span>Grade</span><span>GPA</span></div>
-            <div class="ssrow"><span>Eng. Literature I</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_0_1" oninput="update()"></span><span class="ssgpa" id="gpa9_0_1"></span></div>
-            <div class="ssrow"><span>Algebra I</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_1_1" oninput="update()"></span><span class="ssgpa" id="gpa9_1_1"></span></div>
-            <div class="ssrow"><span>Phy Sci I</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_2_1" oninput="update()"></span><span class="ssgpa" id="gpa9_2_1"></span></div>
-            <div class="ssrow"><span>Hist. de México III</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_3_1" oninput="update()"></span><span class="ssgpa" id="gpa9_3_1"></span></div>
-            <div class="ssrow"><span>Fine A I</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_4_1" oninput="update()"></span><span class="ssgpa" id="gpa9_4_1"></span></div>
-            <div class="ssrow"><span>Comp App I</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_5_1" oninput="update()"></span><span class="ssgpa" id="gpa9_5_1"></span></div>
-            <div class="ssrow"><span>PE I</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_6_1" oninput="update()"></span><span class="ssgpa" id="gpa9_6_1"></span></div>
-            <div class="ssrow"><span>Español I</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_7_1" oninput="update()"></span><span class="ssgpa" id="gpa9_7_1"></span></div>
+            <div class="ssrow sshdr"><span>Subject</span><span>Q1</span><span>Q2</span><span>Exam</span><span>S1</span><span>GPA</span></div>
+<div class="ssrow">
+              <span>Eng. Literature I</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_0_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_0_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_0_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_0_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_0_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_0_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Algebra I</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_1_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_1_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_1_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_1_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_1_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_1_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Phy Sci I</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_2_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_2_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_2_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_2_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_2_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_2_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Hist. de México III</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_3_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_3_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_3_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_3_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_3_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_3_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Fine A I</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_4_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_4_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_4_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_4_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_4_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_4_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Comp App I</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_5_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_5_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_5_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_5_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_5_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_5_1"></span>
+            </div>
+<div class="ssrow">
+              <span>PE I</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_6_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_6_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_6_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_6_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_6_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_6_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Español I</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_7_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_7_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_7_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_7_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_7_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_7_1"></span>
+            </div>
           </div>
         </div>
 
@@ -1331,15 +1393,71 @@
             <span class="sem-prom-badge">Prom: <strong id="prom9s2">—</strong> &nbsp; GPA: <strong id="gpaprom9s2">—</strong></span>
           </div>
           <div class="sem-subj-table">
-            <div class="ssrow sshdr"><span>Subject</span><span>Grade</span><span>GPA</span></div>
-            <div class="ssrow"><span>Eng. Literature II</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_0_2" oninput="update()"></span><span class="ssgpa" id="gpa9_0_2"></span></div>
-            <div class="ssrow"><span>Algebra II</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_1_2" oninput="update()"></span><span class="ssgpa" id="gpa9_1_2"></span></div>
-            <div class="ssrow"><span>Phy Sci I</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_2_2" oninput="update()"></span><span class="ssgpa" id="gpa9_2_2"></span></div>
-            <div class="ssrow"><span>Es S de M</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_3_2" oninput="update()"></span><span class="ssgpa" id="gpa9_3_2"></span></div>
-            <div class="ssrow"><span>Fine A II</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_4_2" oninput="update()"></span><span class="ssgpa" id="gpa9_4_2"></span></div>
-            <div class="ssrow"><span>Comp App II</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_5_2" oninput="update()"></span><span class="ssgpa" id="gpa9_5_2"></span></div>
-            <div class="ssrow"><span>PE II</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_6_2" oninput="update()"></span><span class="ssgpa" id="gpa9_6_2"></span></div>
-            <div class="ssrow"><span>Español II</span><span><input type="number" min="0" max="100" placeholder="—" id="s9_7_2" oninput="update()"></span><span class="ssgpa" id="gpa9_7_2"></span></div>
+            <div class="ssrow sshdr"><span>Subject</span><span>Q1</span><span>Q2</span><span>Exam</span><span>S1</span><span>GPA</span></div>
+<div class="ssrow">
+              <span>Eng. Literature II</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_0_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_0_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_0_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_0_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_0_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_0_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Algebra II</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_1_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_1_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_1_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_1_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_1_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_1_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Phy Sci I</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_2_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_2_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_2_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_2_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_2_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_2_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Es S de M</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_3_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_3_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_3_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_3_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_3_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_3_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Fine A II</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_4_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_4_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_4_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_4_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_4_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_4_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Comp App II</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_5_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_5_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_5_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_5_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_5_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_5_2"></span>
+            </div>
+<div class="ssrow">
+              <span>PE II</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_6_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_6_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_6_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_6_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_6_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_6_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Español II</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_7_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_7_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_7_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_7_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_7_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_7_2"></span>
+            </div>
           </div>
         </div>
 
@@ -1350,7 +1468,7 @@
         <span>Sem 2: <strong id="avg9s2disp">—</strong></span>
         <span>Annual Avg: <strong id="promAnual9">—</strong></span>
         <span>Year GPA: <strong id="ygpa9">—</strong></span>
-        <span style="margin-left:auto">Credits: <strong id="cr9">0</strong></span>
+        <span style="margin-left:auto">Credits: <strong id="crfoot9">0</strong></span>
       </div>
     </div>
 
@@ -1369,14 +1487,63 @@
             <span class="sem-prom-badge">Avg: <strong id="prom10s1">—</strong> &nbsp; GPA: <strong id="gpaprom10s1">—</strong></span>
           </div>
           <div class="sem-subj-table">
-            <div class="ssrow sshdr"><span>Subject</span><span>Grade</span><span>GPA</span></div>
-            <div class="ssrow"><span>English</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_0_1" oninput="update()"></span><span class="ssgpa" id="gpa10_0_1"></span></div>
-            <div class="ssrow"><span>Math</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_1_1" oninput="update()"></span><span class="ssgpa" id="gpa10_1_1"></span></div>
-            <div class="ssrow"><span>Science</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_2_1" oninput="update()"></span><span class="ssgpa" id="gpa10_2_1"></span></div>
-            <div class="ssrow"><span>SS</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_3_1" oninput="update()"></span><span class="ssgpa" id="gpa10_3_1"></span></div>
-            <div class="ssrow"><span>Spanish</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_4_1" oninput="update()"></span><span class="ssgpa" id="gpa10_4_1"></span></div>
-            <div class="ssrow elective-row"><span>Elective 1</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_5_1" oninput="update()"></span><span class="ssgpa" id="gpa10_5_1"></span></div>
-            <div class="ssrow elective-row"><span>Elective 2</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_6_1" oninput="update()"></span><span class="ssgpa" id="gpa10_6_1"></span></div>
+            <div class="ssrow sshdr"><span>Subject</span><span>Q1</span><span>Q2</span><span>Exam</span><span>S1</span><span>GPA</span></div>
+<div class="ssrow">
+              <span>English</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_0_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_0_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_0_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_0_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_0_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_0_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Math</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_1_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_1_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_1_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_1_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_1_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_1_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Science</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_2_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_2_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_2_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_2_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_2_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_2_1"></span>
+            </div>
+<div class="ssrow">
+              <span>SS</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_3_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_3_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_3_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_3_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_3_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_3_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Spanish</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_4_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_4_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_4_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_4_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_4_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_4_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Elective 1</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_5_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_5_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_5_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_5_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_5_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_5_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Elective 2</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_6_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_6_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_6_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_6_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_6_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_6_1"></span>
+            </div>
           </div>
         </div>
         <div class="dual-divider"></div>
@@ -1386,15 +1553,71 @@
             <span class="sem-prom-badge">Avg: <strong id="prom10s2">—</strong> &nbsp; GPA: <strong id="gpaprom10s2">—</strong></span>
           </div>
           <div class="sem-subj-table">
-            <div class="ssrow sshdr"><span>Subject</span><span>Grade</span><span>GPA</span></div>
-            <div class="ssrow"><span>English</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_0_2" oninput="update()"></span><span class="ssgpa" id="gpa10_0_2"></span></div>
-            <div class="ssrow"><span>Math</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_1_2" oninput="update()"></span><span class="ssgpa" id="gpa10_1_2"></span></div>
-            <div class="ssrow"><span>Science</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_2_2" oninput="update()"></span><span class="ssgpa" id="gpa10_2_2"></span></div>
-            <div class="ssrow"><span>SS</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_3_2" oninput="update()"></span><span class="ssgpa" id="gpa10_3_2"></span></div>
-            <div class="ssrow"><span>Spanish</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_4_2" oninput="update()"></span><span class="ssgpa" id="gpa10_4_2"></span></div>
-            <div class="ssrow"><span>Stats</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_5_2" oninput="update()"></span><span class="ssgpa" id="gpa10_5_2"></span></div>
-            <div class="ssrow elective-row"><span>Elective 1</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_6_2" oninput="update()"></span><span class="ssgpa" id="gpa10_6_2"></span></div>
-            <div class="ssrow elective-row"><span>Elective 2</span><span><input type="number" min="0" max="100" placeholder="—" id="s10_7_2" oninput="update()"></span><span class="ssgpa" id="gpa10_7_2"></span></div>
+            <div class="ssrow sshdr"><span>Subject</span><span>Q1</span><span>Q2</span><span>Exam</span><span>S1</span><span>GPA</span></div>
+<div class="ssrow">
+              <span>English</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_0_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_0_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_0_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_0_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_0_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_0_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Math</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_1_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_1_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_1_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_1_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_1_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_1_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Science</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_2_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_2_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_2_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_2_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_2_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_2_2"></span>
+            </div>
+<div class="ssrow">
+              <span>SS</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_3_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_3_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_3_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_3_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_3_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_3_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Spanish</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_4_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_4_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_4_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_4_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_4_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_4_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Stats</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_5_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_5_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_5_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_5_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_5_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_5_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Elective 1</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_6_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_6_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_6_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_6_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_6_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_6_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Elective 2</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_10_7_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_10_7_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_10_7_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_7_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_7_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa10_7_2"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -1403,7 +1626,7 @@
         <span>Sem 2: <strong id="avg10s2disp">—</strong></span>
         <span>Annual Avg: <strong id="promAnual10">—</strong></span>
         <span>Year GPA: <strong id="ygpa10">—</strong></span>
-        <span style="margin-left:auto">Credits: <strong id="cr10">0</strong></span>
+        <span style="margin-left:auto">Credits: <strong id="crfoot10">0</strong></span>
       </div>
     </div>
 
@@ -1422,15 +1645,71 @@
             <span class="sem-prom-badge">Avg: <strong id="prom11s1">—</strong> &nbsp; GPA: <strong id="gpaprom11s1">—</strong></span>
           </div>
           <div class="sem-subj-table">
-            <div class="ssrow sshdr"><span>Subject</span><span>Grade</span><span>GPA</span></div>
-            <div class="ssrow"><span>English</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_0_1" oninput="update()"></span><span class="ssgpa" id="gpa11_0_1"></span></div>
-            <div class="ssrow"><span>Math</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_1_1" oninput="update()"></span><span class="ssgpa" id="gpa11_1_1"></span></div>
-            <div class="ssrow"><span>Science</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_2_1" oninput="update()"></span><span class="ssgpa" id="gpa11_2_1"></span></div>
-            <div class="ssrow"><span>SS</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_3_1" oninput="update()"></span><span class="ssgpa" id="gpa11_3_1"></span></div>
-            <div class="ssrow"><span>Spanish</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_4_1" oninput="update()"></span><span class="ssgpa" id="gpa11_4_1"></span></div>
-            <div class="ssrow"><span>College C I</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_5_1" oninput="update()"></span><span class="ssgpa" id="gpa11_5_1"></span></div>
-            <div class="ssrow elective-row"><span>Elective 1</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_6_1" oninput="update()"></span><span class="ssgpa" id="gpa11_6_1"></span></div>
-            <div class="ssrow elective-row"><span>Elective 2</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_7_1" oninput="update()"></span><span class="ssgpa" id="gpa11_7_1"></span></div>
+            <div class="ssrow sshdr"><span>Subject</span><span>Q1</span><span>Q2</span><span>Exam</span><span>S1</span><span>GPA</span></div>
+<div class="ssrow">
+              <span>English</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_0_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_0_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_0_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_0_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_0_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_0_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Math</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_1_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_1_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_1_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_1_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_1_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_1_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Science</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_2_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_2_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_2_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_2_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_2_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_2_1"></span>
+            </div>
+<div class="ssrow">
+              <span>SS</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_3_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_3_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_3_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_3_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_3_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_3_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Spanish</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_4_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_4_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_4_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_4_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_4_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_4_1"></span>
+            </div>
+<div class="ssrow">
+              <span>College C I</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_5_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_5_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_5_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_5_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_5_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_5_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Elective 1</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_6_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_6_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_6_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_6_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_6_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_6_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Elective 2</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_7_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_7_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_7_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_7_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_7_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_7_1"></span>
+            </div>
           </div>
         </div>
         <div class="dual-divider"></div>
@@ -1440,15 +1719,71 @@
             <span class="sem-prom-badge">Avg: <strong id="prom11s2">—</strong> &nbsp; GPA: <strong id="gpaprom11s2">—</strong></span>
           </div>
           <div class="sem-subj-table">
-            <div class="ssrow sshdr"><span>Subject</span><span>Grade</span><span>GPA</span></div>
-            <div class="ssrow"><span>English</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_0_2" oninput="update()"></span><span class="ssgpa" id="gpa11_0_2"></span></div>
-            <div class="ssrow"><span>Math</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_1_2" oninput="update()"></span><span class="ssgpa" id="gpa11_1_2"></span></div>
-            <div class="ssrow"><span>Science</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_2_2" oninput="update()"></span><span class="ssgpa" id="gpa11_2_2"></span></div>
-            <div class="ssrow"><span>SS</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_3_2" oninput="update()"></span><span class="ssgpa" id="gpa11_3_2"></span></div>
-            <div class="ssrow"><span>Spanish</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_4_2" oninput="update()"></span><span class="ssgpa" id="gpa11_4_2"></span></div>
-            <div class="ssrow"><span>College C II</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_5_2" oninput="update()"></span><span class="ssgpa" id="gpa11_5_2"></span></div>
-            <div class="ssrow elective-row"><span>Elective 1</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_6_2" oninput="update()"></span><span class="ssgpa" id="gpa11_6_2"></span></div>
-            <div class="ssrow elective-row"><span>Elective 2</span><span><input type="number" min="0" max="100" placeholder="—" id="s11_7_2" oninput="update()"></span><span class="ssgpa" id="gpa11_7_2"></span></div>
+            <div class="ssrow sshdr"><span>Subject</span><span>Q1</span><span>Q2</span><span>Exam</span><span>S1</span><span>GPA</span></div>
+<div class="ssrow">
+              <span>English</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_0_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_0_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_0_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_0_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_0_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_0_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Math</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_1_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_1_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_1_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_1_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_1_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_1_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Science</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_2_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_2_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_2_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_2_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_2_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_2_2"></span>
+            </div>
+<div class="ssrow">
+              <span>SS</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_3_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_3_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_3_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_3_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_3_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_3_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Spanish</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_4_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_4_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_4_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_4_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_4_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_4_2"></span>
+            </div>
+<div class="ssrow">
+              <span>College C II</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_5_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_5_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_5_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_5_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_5_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_5_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Elective 1</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_6_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_6_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_6_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_6_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_6_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_6_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Elective 2</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_11_7_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_11_7_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_11_7_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_7_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_7_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa11_7_2"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -1457,7 +1792,7 @@
         <span>Sem 2: <strong id="avg11s2disp">—</strong></span>
         <span>Annual Avg: <strong id="promAnual11">—</strong></span>
         <span>Year GPA: <strong id="ygpa11">—</strong></span>
-        <span style="margin-left:auto">Credits: <strong id="cr11">0</strong></span>
+        <span style="margin-left:auto">Credits: <strong id="crfoot11">0</strong></span>
       </div>
     </div>
 
@@ -1476,15 +1811,71 @@
             <span class="sem-prom-badge">Avg: <strong id="prom12s1">—</strong> &nbsp; GPA: <strong id="gpaprom12s1">—</strong></span>
           </div>
           <div class="sem-subj-table">
-            <div class="ssrow sshdr"><span>Subject</span><span>Grade</span><span>GPA</span></div>
-            <div class="ssrow"><span>English</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_0_1" oninput="update()"></span><span class="ssgpa" id="gpa12_0_1"></span></div>
-            <div class="ssrow"><span>Math</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_1_1" oninput="update()"></span><span class="ssgpa" id="gpa12_1_1"></span></div>
-            <div class="ssrow"><span>Science</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_2_1" oninput="update()"></span><span class="ssgpa" id="gpa12_2_1"></span></div>
-            <div class="ssrow"><span>SS</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_3_1" oninput="update()"></span><span class="ssgpa" id="gpa12_3_1"></span></div>
-            <div class="ssrow"><span>Español</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_4_1" oninput="update()"></span><span class="ssgpa" id="gpa12_4_1"></span></div>
-            <div class="ssrow"><span>Speeches</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_5_1" oninput="update()"></span><span class="ssgpa" id="gpa12_5_1"></span></div>
-            <div class="ssrow elective-row"><span>Elective 1</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_6_1" oninput="update()"></span><span class="ssgpa" id="gpa12_6_1"></span></div>
-            <div class="ssrow elective-row"><span>Elective 2</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_7_1" oninput="update()"></span><span class="ssgpa" id="gpa12_7_1"></span></div>
+            <div class="ssrow sshdr"><span>Subject</span><span>Q1</span><span>Q2</span><span>Exam</span><span>S1</span><span>GPA</span></div>
+<div class="ssrow">
+              <span>English</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_0_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_0_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_0_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_0_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_0_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_0_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Math</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_1_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_1_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_1_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_1_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_1_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_1_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Science</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_2_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_2_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_2_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_2_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_2_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_2_1"></span>
+            </div>
+<div class="ssrow">
+              <span>SS</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_3_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_3_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_3_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_3_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_3_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_3_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Español</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_4_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_4_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_4_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_4_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_4_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_4_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Speeches</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_5_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_5_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_5_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_5_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_5_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_5_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Elective 1</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_6_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_6_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_6_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_6_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_6_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_6_1"></span>
+            </div>
+<div class="ssrow">
+              <span>Elective 2</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_7_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_7_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_7_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_7_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_7_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_7_1"></span>
+            </div>
           </div>
         </div>
         <div class="dual-divider"></div>
@@ -1494,15 +1885,71 @@
             <span class="sem-prom-badge">Avg: <strong id="prom12s2">—</strong> &nbsp; GPA: <strong id="gpaprom12s2">—</strong></span>
           </div>
           <div class="sem-subj-table">
-            <div class="ssrow sshdr"><span>Subject</span><span>Grade</span><span>GPA</span></div>
-            <div class="ssrow"><span>English</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_0_2" oninput="update()"></span><span class="ssgpa" id="gpa12_0_2"></span></div>
-            <div class="ssrow"><span>Math</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_1_2" oninput="update()"></span><span class="ssgpa" id="gpa12_1_2"></span></div>
-            <div class="ssrow"><span>Science</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_2_2" oninput="update()"></span><span class="ssgpa" id="gpa12_2_2"></span></div>
-            <div class="ssrow"><span>SS</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_3_2" oninput="update()"></span><span class="ssgpa" id="gpa12_3_2"></span></div>
-            <div class="ssrow"><span>Español</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_4_2" oninput="update()"></span><span class="ssgpa" id="gpa12_4_2"></span></div>
-            <div class="ssrow"><span>Speeches</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_5_2" oninput="update()"></span><span class="ssgpa" id="gpa12_5_2"></span></div>
-            <div class="ssrow elective-row"><span>Elective 1</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_6_2" oninput="update()"></span><span class="ssgpa" id="gpa12_6_2"></span></div>
-            <div class="ssrow elective-row"><span>Elective 2</span><span><input type="number" min="0" max="100" placeholder="—" id="s12_7_2" oninput="update()"></span><span class="ssgpa" id="gpa12_7_2"></span></div>
+            <div class="ssrow sshdr"><span>Subject</span><span>Q1</span><span>Q2</span><span>Exam</span><span>S1</span><span>GPA</span></div>
+<div class="ssrow">
+              <span>English</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_0_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_0_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_0_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_0_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_0_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_0_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Math</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_1_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_1_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_1_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_1_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_1_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_1_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Science</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_2_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_2_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_2_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_2_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_2_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_2_2"></span>
+            </div>
+<div class="ssrow">
+              <span>SS</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_3_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_3_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_3_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_3_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_3_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_3_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Español</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_4_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_4_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_4_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_4_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_4_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_4_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Speeches</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_5_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_5_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_5_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_5_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_5_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_5_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Elective 1</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_6_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_6_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_6_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_6_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_6_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_6_2"></span>
+            </div>
+<div class="ssrow">
+              <span>Elective 2</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_12_7_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_12_7_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_12_7_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_7_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_7_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa12_7_2"></span>
+            </div>
           </div>
         </div>
       </div>
@@ -1511,7 +1958,7 @@
         <span>Sem 2: <strong id="avg12s2disp">—</strong></span>
         <span>Annual Avg: <strong id="promAnual12">—</strong></span>
         <span>Year GPA: <strong id="ygpa12">—</strong></span>
-        <span style="margin-left:auto">Credits: <strong id="cr12">0</strong></span>
+        <span style="margin-left:auto">Credits: <strong id="crfoot12">0</strong></span>
       </div>
     </div>
 
@@ -1777,17 +2224,6 @@ function toGPA(score) {
   return null;
 }
 
-// ── Build ref grid ───────────────────────────────────────────────────────────
-const refGrid = document.getElementById('refGrid');
-GPA_TABLE.forEach(row => {
-  const cell = document.createElement('div');
-  cell.className = 'ref-cell';
-  cell.style.background = row.bg;
-  cell.style.color = row.textColor;
-  cell.innerHTML = `<div class="letter">${row.letter}</div><div class="gpa">${row.gpa.toFixed(1)}</div><div class="rng">${row.min}–${row.max}</div>`;
-  refGrid.appendChild(cell);
-});
-
 // ── IDs per grade ────────────────────────────────────────────────────────────
 const GRADES = [9,10,11,12];
 
@@ -1831,11 +2267,66 @@ const SUBJECTS_9 = [
 function fmtCr(n) { return n % 1 === 0 ? n.toFixed(0) : n.toFixed(2); }
 
 function styleSubjInput(el, val) {
+  if (!el) return;
   el.classList.remove('s-high','s-mid','s-low');
   if (val === null) return;
   if (val >= 80) el.classList.add('s-high');
   else if (val < 70) el.classList.add('s-low');
   else el.classList.add('s-mid');
+}
+
+function getNum(id) {
+  const el = document.getElementById(id);
+  if (!el) return null;
+  const v = parseFloat(el.value);
+  return isNaN(v) ? null : Math.min(100, Math.max(0, v));
+}
+
+function calcSubjS1(gid, i, sem) {
+  const q1 = getNum(`q1_${gid}_${i}_${sem}`);
+  const q2 = getNum(`q2_${gid}_${i}_${sem}`);
+  const chk = document.getElementById(`ex_${gid}_${i}_${sem}`);
+  const examInput = document.getElementById(`ea_${gid}_${i}_${sem}`);
+  const s1Input   = document.getElementById(`s1_${gid}_${i}_${sem}`);
+
+  // Toggle exam field
+  const hasExam = chk && chk.checked;
+  if (examInput) {
+    examInput.disabled = !hasExam;
+    if (!hasExam) examInput.value = '';
+  }
+
+  const ea = hasExam ? getNum(`ea_${gid}_${i}_${sem}`) : null;
+
+  // Auto-calculate S1 if q1/q2 present
+  let autoS1 = null;
+  if (q1 !== null && q2 !== null) {
+    if (hasExam && ea !== null) {
+      autoS1 = Math.round(q1 * 0.4 + q2 * 0.4 + ea * 0.2);
+    } else if (!hasExam) {
+      autoS1 = Math.round((q1 + q2) / 2);
+    }
+  }
+
+  // If auto calculated, set s1 field readonly and show value
+  if (autoS1 !== null) {
+    s1Input.value = autoS1;
+    s1Input.setAttribute('readonly', true);
+    s1Input.classList.add('s1-calc');
+  } else {
+    s1Input.removeAttribute('readonly');
+    s1Input.classList.remove('s1-calc');
+  }
+
+  // Final S1 value: auto or manual
+  const finalS1 = autoS1 !== null ? autoS1 : getNum(`s1_${gid}_${i}_${sem}`);
+
+  // Style all inputs
+  styleSubjInput(q1 !== null ? document.getElementById(`q1_${gid}_${i}_${sem}`) : null, q1);
+  styleSubjInput(q2 !== null ? document.getElementById(`q2_${gid}_${i}_${sem}`) : null, q2);
+  styleSubjInput(s1Input, finalS1);
+
+  return finalS1;
 }
 
 function setGPACell(el, val) {
@@ -1849,118 +2340,22 @@ function setGPACell(el, val) {
   else el.classList.add('gpa-low');
 }
 
-function calc9th(allQP, allWeight, allScores, yearsComplete) {
-  const n = SUBJECTS_9.length;
-  const CREDITS_9 = [0.5, 0.5, 0.5, 0.5, 0.25, 0.5, 0.25, 0.5]; // Eng,Alg,Phy,Hist,FineA,Comp,PE,Esp
-  let s1Scores = [], s2Scores = [];
-  let s1QP = 0, s1W = 0, s2QP = 0, s2W = 0;
-  let cr9 = 0, localSems = 0;
+// Shared calc for all grades using Q1/Q2/Exam/S1 inputs
+function calcGradeQP(gid, credits_s1, credits_s2, weights_s1, weights_s2, gLabel, allQP, allWeight, allScores, yearsComplete) {
+  const n1 = credits_s1.length, n2 = credits_s2.length;
+  let s1QP=0, s1W=0, s2QP=0, s2W=0, cr=0, localSems=0;
+  const g = gid;
 
-  for (let i = 0; i < n; i++) {
-    const cr = CREDITS_9[i];
-
-    // Sem 1
-    const inS1 = document.getElementById(`s9_${i}_1`);
-    const v1 = parseFloat(inS1.value);
-    const val1 = isNaN(v1) ? null : Math.min(100, Math.max(0, v1));
-    styleSubjInput(inS1, val1);
-    setGPACell(document.getElementById(`gpa9_${i}_1`), val1);
-    if (val1 !== null) {
-      s1Scores.push(val1);
-      s1QP += val1 * cr;
-      s1W  += cr;
-      if (val1 >= 70) cr9 += cr;
-    }
-
-    // Sem 2
-    const inS2 = document.getElementById(`s9_${i}_2`);
-    const v2 = parseFloat(inS2.value);
-    const val2 = isNaN(v2) ? null : Math.min(100, Math.max(0, v2));
-    styleSubjInput(inS2, val2);
-    setGPACell(document.getElementById(`gpa9_${i}_2`), val2);
-    if (val2 !== null) {
-      s2Scores.push(val2);
-      s2QP += val2 * cr;
-      s2W  += cr;
-      if (val2 >= 70) cr9 += cr;
-    }
-  }
-
-  // Weighted averages per semester
-  const avg9s1 = s1W > 0 ? s1QP / s1W : null;
-  const avg9s2 = s2W > 0 ? s2QP / s2W : null;
-  const gpa9s1 = avg9s1 !== null ? toGPA(avg9s1) : null;
-  const gpa9s2 = avg9s2 !== null ? toGPA(avg9s2) : null;
-
-  // Header badges
-  document.getElementById('prom9s1').textContent    = avg9s1 !== null ? avg9s1.toFixed(1) : '—';
-  document.getElementById('gpaprom9s1').textContent = gpa9s1 ? gpa9s1.gpa.toFixed(2) : '—';
-  document.getElementById('prom9s2').textContent    = avg9s2 !== null ? avg9s2.toFixed(1) : '—';
-  document.getElementById('gpaprom9s2').textContent = gpa9s2 ? gpa9s2.gpa.toFixed(2) : '—';
-
-  // Footer
-  document.getElementById('avg9').textContent       = avg9s1 !== null ? avg9s1.toFixed(1) : '—';
-  document.getElementById('avg9s2disp').textContent = avg9s2 !== null ? avg9s2.toFixed(1) : '—';
-
-  const totalW   = s1W + s2W;
-  const totalQP  = s1QP + s2QP;
-  const yearAvg  = totalW > 0 ? totalQP / totalW : null;
-  document.getElementById('promAnual9').textContent = yearAvg !== null ? yearAvg.toFixed(1) : '—';
-
-  // GPA per semester (weighted avg → GPA conversion)
-  const gpaVals = [gpa9s1, gpa9s2].filter(x => x !== null).map(x => x.gpa);
-  const avgGPA9 = gpaVals.length ? gpaVals.reduce((a,b)=>a+b,0)/gpaVals.length : null;
-
-  document.getElementById('ygpa9').textContent = avgGPA9 !== null ? avgGPA9.toFixed(2) : '—';
-  document.getElementById('gpa9').textContent  = avgGPA9 !== null ? `GPA ${avgGPA9.toFixed(2)}` : 'GPA —';
-
-  // Push weighted quality points to global accumulators
-  if (s1W > 0) { allQP.push(s1QP); allWeight.push(s1W); allScores.push(avg9s1); localSems++; }
-  if (s2W > 0) { allQP.push(s2QP); allWeight.push(s2W); allScores.push(avg9s2); localSems++; }
-  if (s1W > 0 && s2W > 0) yearsComplete.push('9th');
-
-  setBar('bar9','bval9', avgGPA9, yearAvg);
-
-  document.getElementById('cr9').textContent     = fmtCr(cr9);
-  document.getElementById('cr9disp').textContent = fmtCr(cr9);
-
-  return { cr: cr9, semsCount: localSems };
-}
-
-const SUBJECTS_10 = ['English','Math','Science','SS','Spanish','Elective 1','Elective 2'];
-const CREDITS_10_S1 = [0.5,0.5,0.5,0.5,0.5,0.5,0.5];
-const CREDITS_10_S2 = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
-
-const SUBJECTS_11 = ['English','Math','Science','SS','Spanish','College C','Elective 1','Elective 2'];
-const CREDITS_11  = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
-
-const SUBJECTS_12 = ['English','Math','Science','SS','Español','Speeches','Elective 1','Elective 2'];
-const CREDITS_12  = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
-
-function calcGrade(grade, allQP, allWeight, allScores, yearsComplete) {
-  const g = grade;
-  const subjs = g === 10 ? SUBJECTS_10 : g === 11 ? SUBJECTS_11 : SUBJECTS_12;
-  const crS1  = g === 10 ? CREDITS_10_S1 : g === 11 ? CREDITS_11 : CREDITS_12;
-  const crS2  = g === 10 ? CREDITS_10_S2 : g === 11 ? CREDITS_11 : CREDITS_12;
-  const n1 = crS1.length, n2 = crS2.length;
-  let s1QP=0,s1W=0,s2QP=0,s2W=0,cr=0,localSems=0;
-
-  for (let i=0;i<Math.max(n1,n2);i++) {
+  for (let i=0; i<Math.max(n1,n2); i++) {
     if (i < n1) {
-      const el = document.getElementById(`s${g}_${i}_1`);
-      const v = parseFloat(el.value);
-      const val = isNaN(v) ? null : Math.min(100,Math.max(0,v));
-      styleSubjInput(el, val);
-      setGPACell(document.getElementById(`gpa${g}_${i}_1`), val);
-      if (val !== null) { s1QP += val*crS1[i]; s1W += crS1[i]; if(val>=70) cr += crS1[i]; }
+      const val = calcSubjS1(gid, i, 1);
+      setGPACell(document.getElementById(`gpa${gid}_${i}_1`), val);
+      if (val !== null) { s1QP += val*weights_s1[i]; s1W += weights_s1[i]; if(val>=70) cr += credits_s1[i]; }
     }
     if (i < n2) {
-      const el = document.getElementById(`s${g}_${i}_2`);
-      const v = parseFloat(el.value);
-      const val = isNaN(v) ? null : Math.min(100,Math.max(0,v));
-      styleSubjInput(el, val);
-      setGPACell(document.getElementById(`gpa${g}_${i}_2`), val);
-      if (val !== null) { s2QP += val*crS2[i]; s2W += crS2[i]; if(val>=70) cr += crS2[i]; }
+      const val = calcSubjS1(gid, i, 2);
+      setGPACell(document.getElementById(`gpa${gid}_${i}_2`), val);
+      if (val !== null) { s2QP += val*weights_s2[i]; s2W += weights_s2[i]; if(val>=70) cr += credits_s2[i]; }
     }
   }
 
@@ -1987,26 +2382,46 @@ function calcGrade(grade, allQP, allWeight, allScores, yearsComplete) {
 
   if (s1W>0) { allQP.push(s1QP); allWeight.push(s1W); allScores.push(avg1); localSems++; }
   if (s2W>0) { allQP.push(s2QP); allWeight.push(s2W); allScores.push(avg2); localSems++; }
-  if (s1W>0 && s2W>0) yearsComplete.push(`${g}th`);
+  if (s1W>0 && s2W>0) yearsComplete.push(gLabel);
 
   setBar(`bar${g}`,`bval${g}`, avgGPA, yearAvg);
   document.getElementById(`cr${g}`).textContent     = fmtCr(cr);
   document.getElementById(`cr${g}disp`).textContent = fmtCr(cr);
+  document.getElementById(`crfoot${g}`).textContent = fmtCr(cr);
 
   return { cr, semsCount: localSems };
 }
 
-function calc12th(allQP, allWeight, allScores, yearsComplete) {
-  return calcGrade(12, allQP, allWeight, allScores, yearsComplete);
+function calc9th(allQP, allWeight, allScores, yearsComplete) {
+  const CR9  = [0.5, 0.5, 0.5, 0.5, 0.25, 0.5, 0.25, 0.5]; // credits (for graduation)
+  const WT9  = [1.0, 1.0, 1.0, 1.0, 0.40, 1.0, 0.50, 1.0]; // weights (for GPA calc)
+  return calcGradeQP('9', CR9, CR9, WT9, WT9, '9th', allQP, allWeight, allScores, yearsComplete);
 }
-function calc11th(allQP, allWeight, allScores, yearsComplete) {
-  return calcGrade(11, allQP, allWeight, allScores, yearsComplete);
-}
+
+const DUMMY9 = null; // placeholder to keep structure
+const SUBJECTS_10 = ['English','Math','Science','SS','Spanish','Elective 1','Elective 2'];
+const CREDITS_10_S1 = [0.5,0.5,0.5,0.5,0.5,0.5,0.5];
+const CREDITS_10_S2 = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
+
+const SUBJECTS_11 = ['English','Math','Science','SS','Spanish','College C','Elective 1','Elective 2'];
+const CREDITS_11  = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
+
+const SUBJECTS_12 = ['English','Math','Science','SS','Español','Speeches','Elective 1','Elective 2'];
+const CREDITS_12  = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
 
 function calc10th(allQP, allWeight, allScores, yearsComplete) {
-  return calcGrade(10, allQP, allWeight, allScores, yearsComplete);
+  const S1 = [0.5,0.5,0.5,0.5,0.5,0.5,0.5];
+  const S2 = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
+  return calcGradeQP('10', S1, S2, S1, S2, '10th', allQP, allWeight, allScores, yearsComplete);
 }
-
+function calc11th(allQP, allWeight, allScores, yearsComplete) {
+  const CR = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
+  return calcGradeQP('11', CR, CR, CR, CR, '11th', allQP, allWeight, allScores, yearsComplete);
+}
+function calc12th(allQP, allWeight, allScores, yearsComplete) {
+  const CR = [0.5,0.5,0.5,0.5,0.5,0.5,0.5,0.5];
+  return calcGradeQP('12', CR, CR, CR, CR, '12th', allQP, allWeight, allScores, yearsComplete);
+}
 
 function update() {
   const allQP     = [];  // quality points per semester (sum of grade×credit)
@@ -2094,36 +2509,34 @@ function printReport() {
 }
 
 function resetAll() {
-  ['studentName','studentId','schoolYear'].forEach(id => document.getElementById(id).value = '');
-  // Clear 9th subject inputs
-  SUBJECTS_9.forEach((_, i) => {
-    ['1','2'].forEach(s => {
-      const el = document.getElementById(`s9_${i}_${s}`);
-      if (el) { el.value = ''; el.classList.remove('s-high','s-mid','s-low'); }
+  ['studentName','studentId','schoolYear'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.value = '';
+  });
+
+  // Clear all grade inputs: Q1, Q2, Exam checkbox+value, S1
+  const grades = {
+    '9':  { s1: 8, s2: 8 },
+    '10': { s1: 7, s2: 8 },
+    '11': { s1: 8, s2: 8 },
+    '12': { s1: 8, s2: 8 },
+  };
+  for (const [gid, {s1, s2}] of Object.entries(grades)) {
+    [[1, s1],[2, s2]].forEach(([sem, n]) => {
+      for (let i = 0; i < n; i++) {
+        ['q1','q2','ea','s1'].forEach(pfx => {
+          const el = document.getElementById(`${pfx}_${gid}_${i}_${sem}`);
+          if (el) { el.value = ''; el.classList.remove('s-high','s-mid','s-low','s1-calc'); el.removeAttribute('readonly'); }
+        });
+        const chk = document.getElementById(`ex_${gid}_${i}_${sem}`);
+        if (chk) { chk.checked = false; }
+        const ea = document.getElementById(`ea_${gid}_${i}_${sem}`);
+        if (ea) ea.disabled = true;
+      }
     });
-  });
-  // Clear 10th and 11th subject inputs
-  [10, 11].forEach(g => {
-    const n = g === 10 ? SUBJECTS_10.length : SUBJECTS_11.length;
-    for (let i = 0; i < n; i++) {
-      ['1','2'].forEach(s => {
-        const el = document.getElementById(`s${g}_${i}_${s}`);
-        if (el) { el.value = ''; el.classList.remove('s-high','s-mid','s-low'); }
-      });
-    }
-  });
-  // Clear 12th inputs
-  SUBJECTS_12.forEach((_, i) => {
-    ['1','2'].forEach(s => {
-      const el = document.getElementById(`s12_${i}_${s}`);
-      if (el) { el.value = ''; el.classList.remove('s-high','s-mid','s-low'); }
-    });
-  });
+  }
   update();
 }
-
-
-
 function toggleMath() {
   const btn  = document.getElementById('mathToggle');
   const body = document.getElementById('mathBody');
