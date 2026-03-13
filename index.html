@@ -1042,8 +1042,22 @@
   .exam-cell input[type=number] { width: 100%; }
   .s1-calc { background: #F0F4FF !important; border-color: #C7D2FE !important; color: var(--navy) !important; font-style: italic; }
   .s1-calc:not([readonly]) { background: #fff !important; border-color: var(--border) !important; color: var(--text) !important; font-style: normal; }
+
   .ssrow.elective-row { border-top: 1px dashed var(--border); }
   .ssrow.elective-row span:first-child { color: var(--muted); font-style: italic; }
+  .ssrow.col-avg-row {
+    background: #EEF2FF;
+    border-top: 2px solid var(--navy);
+    border-bottom: none;
+    font-family: 'DM Mono', monospace;
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--navy);
+    min-height: 32px;
+  }
+  .ssrow.col-avg-row span:first-child { font-size: .7rem; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: .05em; }
+  .ssrow.col-avg-row .avg-val { text-align: center; }
+  .ssrow.col-avg-row .avg-empty { text-align: center; color: var(--muted); font-weight: 400; font-size: .7rem; }
 
   /* ── Subject table ── */
   .subj-table {
@@ -1317,7 +1331,7 @@
           <div class="sem-subj-table">
             <div class="ssrow sshdr"><span>Subject</span><span>Q1</span><span>Q2</span><span>Exam</span><span>S1</span><span>GPA</span></div>
 <div class="ssrow">
-              <span>Eng. Literature I</span>
+              <span>English</span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_0_1" oninput="update()"></span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_0_1" oninput="update()"></span>
               <span class="exam-cell"><input type="checkbox" id="ex_9_0_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_0_1" oninput="update()" disabled></span>
@@ -1325,7 +1339,7 @@
               <span class="ssgpa" id="gpa9_0_1"></span>
             </div>
 <div class="ssrow">
-              <span>Algebra I</span>
+              <span>Math</span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_1_1" oninput="update()"></span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_1_1" oninput="update()"></span>
               <span class="exam-cell"><input type="checkbox" id="ex_9_1_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_1_1" oninput="update()" disabled></span>
@@ -1333,7 +1347,7 @@
               <span class="ssgpa" id="gpa9_1_1"></span>
             </div>
 <div class="ssrow">
-              <span>Phy Sci I</span>
+              <span>Science</span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_2_1" oninput="update()"></span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_2_1" oninput="update()"></span>
               <span class="exam-cell"><input type="checkbox" id="ex_9_2_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_2_1" oninput="update()" disabled></span>
@@ -1341,7 +1355,7 @@
               <span class="ssgpa" id="gpa9_2_1"></span>
             </div>
 <div class="ssrow">
-              <span>Hist. de México III</span>
+              <span>SS</span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_3_1" oninput="update()"></span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_3_1" oninput="update()"></span>
               <span class="exam-cell"><input type="checkbox" id="ex_9_3_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_3_1" oninput="update()" disabled></span>
@@ -1373,12 +1387,28 @@
               <span class="ssgpa" id="gpa9_6_1"></span>
             </div>
 <div class="ssrow">
-              <span>Español I</span>
+              <span>Español</span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_7_1" oninput="update()"></span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_7_1" oninput="update()"></span>
               <span class="exam-cell"><input type="checkbox" id="ex_9_7_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_7_1" oninput="update()" disabled></span>
               <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_7_1" oninput="update()"></span>
               <span class="ssgpa" id="gpa9_7_1"></span>
+            </div>
+<div class="ssrow elective-row">
+              <span>Elective</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_8_1" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_8_1" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_8_1" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_8_1" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_8_1" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_8_1"></span>
+            </div>
+<div class="ssrow col-avg-row">
+              <span>Sem 1 Avg</span>
+              <span class="col-avg-val" id="colavg_q1_9_1">—</span>
+              <span class="col-avg-val" id="colavg_q2_9_1">—</span>
+              <span></span>
+              <span class="col-avg-val" id="colavg_s1_9_1">—</span>
+              <span></span>
             </div>
           </div>
         </div>
@@ -1395,7 +1425,7 @@
           <div class="sem-subj-table">
             <div class="ssrow sshdr"><span>Subject</span><span>Q1</span><span>Q2</span><span>Exam</span><span>S1</span><span>GPA</span></div>
 <div class="ssrow">
-              <span>Eng. Literature II</span>
+              <span>English</span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_0_2" oninput="update()"></span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_0_2" oninput="update()"></span>
               <span class="exam-cell"><input type="checkbox" id="ex_9_0_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_0_2" oninput="update()" disabled></span>
@@ -1403,7 +1433,7 @@
               <span class="ssgpa" id="gpa9_0_2"></span>
             </div>
 <div class="ssrow">
-              <span>Algebra II</span>
+              <span>Math</span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_1_2" oninput="update()"></span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_1_2" oninput="update()"></span>
               <span class="exam-cell"><input type="checkbox" id="ex_9_1_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_1_2" oninput="update()" disabled></span>
@@ -1411,7 +1441,7 @@
               <span class="ssgpa" id="gpa9_1_2"></span>
             </div>
 <div class="ssrow">
-              <span>Phy Sci I</span>
+              <span>Science</span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_2_2" oninput="update()"></span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_2_2" oninput="update()"></span>
               <span class="exam-cell"><input type="checkbox" id="ex_9_2_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_2_2" oninput="update()" disabled></span>
@@ -1451,12 +1481,28 @@
               <span class="ssgpa" id="gpa9_6_2"></span>
             </div>
 <div class="ssrow">
-              <span>Español II</span>
+              <span>Español</span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_7_2" oninput="update()"></span>
               <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_7_2" oninput="update()"></span>
               <span class="exam-cell"><input type="checkbox" id="ex_9_7_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_7_2" oninput="update()" disabled></span>
               <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_7_2" oninput="update()"></span>
               <span class="ssgpa" id="gpa9_7_2"></span>
+            </div>
+<div class="ssrow elective-row">
+              <span>Elective</span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q1_9_8_2" oninput="update()"></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="q2_9_8_2" oninput="update()"></span>
+              <span class="exam-cell"><input type="checkbox" id="ex_9_8_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_9_8_2" oninput="update()" disabled></span>
+              <span><input type="number" min="0" max="100" placeholder="—" id="s1_9_8_2" oninput="update()"></span>
+              <span class="ssgpa" id="gpa9_8_2"></span>
+            </div>
+<div class="ssrow col-avg-row">
+              <span>Sem 2 Avg</span>
+              <span class="col-avg-val" id="colavg_q1_9_2">—</span>
+              <span class="col-avg-val" id="colavg_q2_9_2">—</span>
+              <span></span>
+              <span class="col-avg-val" id="colavg_s1_9_2">—</span>
+              <span></span>
             </div>
           </div>
         </div>
@@ -1544,6 +1590,14 @@
               <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_6_1" oninput="update()"></span>
               <span class="ssgpa" id="gpa10_6_1"></span>
             </div>
+<div class="ssrow col-avg-row">
+              <span>Sem 1 Avg</span>
+              <span class="col-avg-val" id="colavg_q1_10_1">—</span>
+              <span class="col-avg-val" id="colavg_q2_10_1">—</span>
+              <span></span>
+              <span class="col-avg-val" id="colavg_s1_10_1">—</span>
+              <span></span>
+            </div>
           </div>
         </div>
         <div class="dual-divider"></div>
@@ -1617,6 +1671,14 @@
               <span class="exam-cell"><input type="checkbox" id="ex_10_7_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_10_7_2" oninput="update()" disabled></span>
               <span><input type="number" min="0" max="100" placeholder="—" id="s1_10_7_2" oninput="update()"></span>
               <span class="ssgpa" id="gpa10_7_2"></span>
+            </div>
+<div class="ssrow col-avg-row">
+              <span>Sem 2 Avg</span>
+              <span class="col-avg-val" id="colavg_q1_10_2">—</span>
+              <span class="col-avg-val" id="colavg_q2_10_2">—</span>
+              <span></span>
+              <span class="col-avg-val" id="colavg_s1_10_2">—</span>
+              <span></span>
             </div>
           </div>
         </div>
@@ -1710,6 +1772,14 @@
               <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_7_1" oninput="update()"></span>
               <span class="ssgpa" id="gpa11_7_1"></span>
             </div>
+<div class="ssrow col-avg-row">
+              <span>Sem 1 Avg</span>
+              <span class="col-avg-val" id="colavg_q1_11_1">—</span>
+              <span class="col-avg-val" id="colavg_q2_11_1">—</span>
+              <span></span>
+              <span class="col-avg-val" id="colavg_s1_11_1">—</span>
+              <span></span>
+            </div>
           </div>
         </div>
         <div class="dual-divider"></div>
@@ -1783,6 +1853,14 @@
               <span class="exam-cell"><input type="checkbox" id="ex_11_7_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_11_7_2" oninput="update()" disabled></span>
               <span><input type="number" min="0" max="100" placeholder="—" id="s1_11_7_2" oninput="update()"></span>
               <span class="ssgpa" id="gpa11_7_2"></span>
+            </div>
+<div class="ssrow col-avg-row">
+              <span>Sem 2 Avg</span>
+              <span class="col-avg-val" id="colavg_q1_11_2">—</span>
+              <span class="col-avg-val" id="colavg_q2_11_2">—</span>
+              <span></span>
+              <span class="col-avg-val" id="colavg_s1_11_2">—</span>
+              <span></span>
             </div>
           </div>
         </div>
@@ -1876,6 +1954,14 @@
               <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_7_1" oninput="update()"></span>
               <span class="ssgpa" id="gpa12_7_1"></span>
             </div>
+<div class="ssrow col-avg-row">
+              <span>Sem 1 Avg</span>
+              <span class="col-avg-val" id="colavg_q1_12_1">—</span>
+              <span class="col-avg-val" id="colavg_q2_12_1">—</span>
+              <span></span>
+              <span class="col-avg-val" id="colavg_s1_12_1">—</span>
+              <span></span>
+            </div>
           </div>
         </div>
         <div class="dual-divider"></div>
@@ -1949,6 +2035,14 @@
               <span class="exam-cell"><input type="checkbox" id="ex_12_7_2" onchange="update()"><input type="number" min="0" max="100" placeholder="—" id="ea_12_7_2" oninput="update()" disabled></span>
               <span><input type="number" min="0" max="100" placeholder="—" id="s1_12_7_2" oninput="update()"></span>
               <span class="ssgpa" id="gpa12_7_2"></span>
+            </div>
+<div class="ssrow col-avg-row">
+              <span>Sem 2 Avg</span>
+              <span class="col-avg-val" id="colavg_q1_12_2">—</span>
+              <span class="col-avg-val" id="colavg_q2_12_2">—</span>
+              <span></span>
+              <span class="col-avg-val" id="colavg_s1_12_2">—</span>
+              <span></span>
             </div>
           </div>
         </div>
@@ -2047,7 +2141,7 @@
         </div>
 
         <div class="qp-example-wrap" style="margin-top:1rem;">
-          <div class="qp-example-title">9th Grade — full year example (Manzur)</div>
+          <div class="qp-example-title">9th Grade — Full Year Example</div>
           <div class="qp-table">
             <div class="qp-row qp-hdr"><span>Subject</span><span>S1</span><span>S2</span><span>Weight</span><span>QP (S1)</span><span>QP (S2)</span></div>
             <div class="qp-row"><span>Eng. Literature</span><span>73</span><span>73</span><span>1.0</span><span>73.0</span><span>73.0</span></div>
@@ -2292,8 +2386,8 @@ function setBar(barId, valId, gpa, avg100) {
 
 // ── 9th grade subjects config ────────────────────────────────────────────────
 const SUBJECTS_9 = [
-  'Eng. Literature I','Algebra I','Phy Sci I',
-  'Hist. de México III','Fine A I','Comp App I','PE I','Español I'
+  'English','Math','Science',
+  'SS','Fine Arts I','Comp App I','PE I','Español','Elective'
 ];
 
 function fmtCr(n) { return n % 1 === 0 ? n.toFixed(0) : n.toFixed(2); }
@@ -2425,8 +2519,8 @@ function calcGradeQP(gid, credits_s1, credits_s2, weights_s1, weights_s2, gLabel
 }
 
 function calc9th(allQP, allWeight, allScores, yearsComplete) {
-  const CR9  = [0.5, 0.5, 0.5, 0.5, 0.25, 0.5, 0.25, 0.5]; // credits (for graduation)
-  const WT9  = [1.0, 1.0, 1.0, 1.0, 0.40, 1.0, 0.50, 1.0]; // weights (for GPA calc)
+  const CR9  = [0.5, 0.5, 0.5, 0.5, 0.25, 0.5, 0.25, 0.5, 0.5]; // credits (for graduation)
+  const WT9  = [1.0, 1.0, 1.0, 1.0, 0.40, 1.0, 0.50, 1.0, 1.0]; // weights (for GPA calc)
   return calcGradeQP('9', CR9, CR9, WT9, WT9, '9th', allQP, allWeight, allScores, yearsComplete);
 }
 
@@ -2460,6 +2554,7 @@ function calc12th(allQP, allWeight, allScores, yearsComplete) {
 }
 
 function update() {
+  updateColAvgs();
   const allQP     = [];  // quality points per semester (sum of grade×credit)
   const allWeight = [];  // total credits per semester
   const allScores = [];  // weighted avg per semester (for display)
@@ -2581,6 +2676,35 @@ function toggleMath() {
 }
 
 update();
+
+// ── Column averages ──────────────────────────────────────────────────────
+function updateColAvgs() {
+  const configs = [
+    {grade:'9',  sem:1, n:9},
+    {grade:'9',  sem:2, n:9},
+    {grade:'10', sem:1, n:7},
+    {grade:'10', sem:2, n:8},
+    {grade:'11', sem:1, n:8},
+    {grade:'11', sem:2, n:8},
+    {grade:'12', sem:1, n:8},
+    {grade:'12', sem:2, n:8},
+  ];
+  configs.forEach(({grade, sem, n}) => {
+    ['q1','q2','s1'].forEach(col => {
+      const vals = [];
+      for (let i=0; i<n; i++) {
+        const el = document.getElementById(`${col}_${grade}_${i}_${sem}`);
+        if (el) {
+          const v = parseFloat(el.value);
+          if (!isNaN(v)) vals.push(v);
+        }
+      }
+      const spanEl = document.getElementById(`colavg_${col}_${grade}_${sem}`);
+      if (spanEl) spanEl.textContent = vals.length ? (vals.reduce((a,b)=>a+b,0)/vals.length).toFixed(1) : '—';
+    });
+  });
+}
+
 </script>
 </body>
 </html>
